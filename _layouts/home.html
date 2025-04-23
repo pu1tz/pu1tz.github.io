@@ -11,18 +11,31 @@ refactor: true
 
 <!-- THM reference -->
 
-<iframe class="thm-box" src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1747423"></iframe>
+<div class="stupidbox">
+  <iframe class="thm-box" scrolling="no" src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1747423" allowtransparency="true"></iframe>
+</div>
 <style>
-  .thm-box {
+ .stupidbox {
+    overflow: hidden;
+    border-radius: 15px;
+    width: 326px;
     position: relative;
     left: 35%;
+  }
+
+  .thm-box {
+    display: block;
     object-position: center;
     object-fit: cover;
-    width: 100%;
-    height: 200px;
+    width: 326px;
+    height: 83px;
     border: none;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
+
+ 
 </style>
 
 <!-- Get pinned posts on current page -->
