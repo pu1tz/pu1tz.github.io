@@ -16,10 +16,10 @@ timezone: Europe/Copenhagen
 
 title: pu1tz # the main title
 
-tagline: This is where I post my writeups - hope they are helpful :) # it will display as the subtitle
+tagline: HTB, THM & CTF writeups - hope they are helpful :) # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  This is where I post my writeups - hope they are helpful :)
+  HTB, THM & CTF writeups - hope they are helpful :)
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -29,7 +29,7 @@ github:
   username: pu1tz # change to your GitHub username
 
 twitter:
-  username: twitter_username # change to your Twitter username
+  username: #twitter_username # change to your Twitter username
 
 social:
   # Change to your full name.
