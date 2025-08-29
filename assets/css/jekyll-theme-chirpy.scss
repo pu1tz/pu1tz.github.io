@@ -11,7 +11,207 @@
 /* append your custom style below */
 
 /*
-  Hide the share icons at bottom of posts.
+  To revert to the original Chirpy styles other than font-family, comment out
+  all code below this point.
+*/
+
+/*
+  Set the colors for theme elements using a specific hue and saturation while
+  varying the lightness, effectively using shades of the same color. Lightness
+  varies from 100% (white) through 50% (showing color) to 0% (black).
+*/
+
+@use 'light_colors';
+@use 'dark_colors';
+
+:root {
+  /*
+    Set the base hue and saturation for creating style colors. The variables
+    are used in assets/css/light_colors.scss and assets/css/dark_colors.scss.
+  */
+  --base-hue: 180; // 0 to 360
+  --base-saturation: 20; // 0 to 100
+
+  /*
+    Set the font families.
+  */
+  --content-font-family: Georgia, serif;
+  --heading-font-family: Georgia, serif;
+  --table-font-family: Verdana, sans-serif;
+
+  /*
+    Set up support for light mode and dark mode.
+  */
+  @media (prefers-color-scheme: light) {
+    &:not([data-mode]),
+    &[data-mode='light'] {
+      @include light_colors.styles;
+    }
+
+    &[data-mode='dark'] {
+      @include dark_colors.styles;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:not([data-mode]),
+    &[data-mode='dark'] {
+      @include dark_colors.styles;
+    }
+
+    &[data-mode='light'] {
+      @include light_colors.styles;
+    }
+  }
+}
+
+/*
+  - These changes are for sphaerula.com.
+  - Remove the box shadow around the avatar image.
+  - Enlarge the avatar image by 1.1 to make it fill the circle.
+  - In the sidebar, adjust the font size of the site's title to make the title
+    fit on one line.
+  - Increase the font size of the site's subtitle to make it a little easier to
+    read. Unfortunately, you have to zoom in to see the emoji.
+*/
+
+/*
+  The following changes are shared between sphaerula.com and conradhalling.com.
+*/
+
+/*
+  Set the content font family.
+*/
+body {
+  font-family: var(--content-font-family);
+}
+
+/*
+  Increase font size for content and adjust line spacing for readability.
+*/
+.content {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
+/*
+  Style titles, headings, and labels using the same font family.
+*/
+/* _includes/topbar.html */
+search#search,
+#topbar-title,
+/* _sass/base/_base.scss */
+.content a.popup + em,
+div#tail-wrapper,
+/* _sass/base/_syntax.scss */
+div[class^="language-"] .code-header,
+/* _sass/base/_typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+div.content div#tags,
+/* _sass/components/_popups.scss */
+#notification > .toast-body,
+#toc-popup .header .label,
+#toc-popup #toc-popup-content,
+/* _sass/layout/_panel.scss */
+div.access > section,
+#panel-wrapper .panel-heading,
+/* _sass/layout/_sidebar.scss */
+#sidebar .site-title,
+#sidebar .site-subtitle,
+#sidebar ul,
+/* _sass/layout/_topbar.scss */
+#topbar #breadcrumb,
+/* _sass/pages/_archives.scss */
+div#archives,
+#archives .date.day,
+/* _sass/pages/_categories.scss */
+article div div.categories.card,
+/* _sass/pages/_category-tag.scss */
+div#page-category ul,
+div#page-tag ul,
+/* _sass/pages/_home.scss */
+#post-list .card .card-body .post-meta,
+#post-list .card .card-body .card-text.content,
+ul .pagination,
+/* _sass/pages/_post.scss */
+.share-mastodon,
+#toc-solo-trigger .label,
+header > div.post-meta,
+div.post-tail-wrapper div.license-wrapper,
+div.post-tail-wrapper div.post-tags,
+section#toc-wrapper,
+header .post-desc,
+/* _sass/pages/_search.scss */
+div#search-result-wrapper div.content,
+/* _sass/pages/_tags.scss */
+.tag span,
+{
+  font-family: var(--heading-font-family);
+}
+
+/*
+  - Override Lato font for the kbd element.
+  - _sass/base/_typography.scss
+*/
+kbd {
+  font-family: monospace;
+}
+
+/*
+  Override default styles to maintain font size.
+*/
+/* _sass/pages/_home.scss */
+#post-list .card .card-body .card-text.content,
+/* _sass/base/_typography.scss */
+div.content div#tags,
+/* _sass/pages/_search.scss */
+div#search-result-wrapper div.content,
+{
+  font-size: 1rem;
+}
+
+/*
+  - In the Archives page, adjust the font size for the year to make make the
+    timeline indicators align correctly.
+  - _sass/pages/_archives.scss
+*/
+
+
+div#archives .year {
+  font-size: 1.33rem;
+}
+
+
+/*
+  - In tables, use a small sans-serif font.
+  - _sass/base/_base.scss
+*/
+.table-wrapper > table tr th,
+.table-wrapper > table tr td,
+{
+  font-family: var(--table-font-family);
+  font-size: 0.8rem !important;
+  padding: 0.5rem !important;
+  line-height: 1.2rem;
+  vertical-align: top;
+}
+
+
+/*
+  - Prevent collapsing the table of contents.
+  - ./assets/lib/tocbot/tocbot.min.css
+*/
+.is-collapsed {
+  max-height: none !important;
+}
+
+/*
+  - Hide the share icons at bottom of posts.
+  - _sass/pages/_post.scss
 */
 div .share-wrapper {
   display: none !important;
