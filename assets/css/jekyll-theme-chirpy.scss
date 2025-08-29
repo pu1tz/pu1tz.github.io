@@ -1,0 +1,18 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/*
+  Hide the share icons at bottom of posts.
+*/
+div .share-wrapper {
+  display: none !important;
+}
