@@ -2,7 +2,7 @@
 title: Nocturnal
 date: 2025-04-19 12:57:00 +0200
 categories: [HackTheBox, Machines]
-tags: [boot2root, linux]
+tags: [boot2root]
 description: Hack The Box - Nocturnal from season 7. Easy linux machine.
 image: /assets/img/HTB/Nocturnal/Nocturnal.png
 ---

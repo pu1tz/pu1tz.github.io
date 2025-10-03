@@ -54,7 +54,7 @@ script_includes:
       {% endif %}
 
       <div class="d-flex justify-content-between">
-        <!-- author(s) -->
+        <!-- author(s) 
         <span>
           {% if page.author %}
             {% assign authors = page.author %}
@@ -79,9 +79,10 @@ script_includes:
             {% endif %}
           </em>
         </span>
-
+        -->
+        
         <div>
-          <!-- pageviews -->
+          <!-- pageviews
           {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
             <span>
               <em id="pageviews">
@@ -90,9 +91,8 @@ script_includes:
               {{ site.data.locales[lang].post.pageview_measure }}
             </span>
           {% endif %}
-
+          -->
           <!-- read time -->
-          {% include read-time.html content=content prompt=true lang=lang %}
         </div>
       </div>
     </div>
