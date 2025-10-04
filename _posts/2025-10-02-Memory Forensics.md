@@ -8,6 +8,7 @@ image: /assets/img/THM/MemoryForensics.png
 ---
 
 >**Platform:** [TryHackMe](https://tryhackme.com/room/memoryforensics) - 2 Oct 2025
+>**Rating:** Easy
 
 ## Task 2 - Login
 ### Description
@@ -25,6 +26,7 @@ Guest   501     aad3b435b51404eeaad3b435b51404ee        31d6cfe0d16ae931b73c59d7
 John    1001    aad3b435b51404eeaad3b435b51404ee        47fb...※\(^o^)/※
 HomeGroupUser$  1002    aad3b435b51404eeaad3b435b51404ee        91c34c06b7988e216c3bfeb9530cabfb
 ```
+{: .nolineno}
 >Older versions of Volatility3 has this plugin located as: windows.hashdump.Hashdump
 {: .prompt-info }
 Cracking this NTLM hash with Crackstation[^1] we get John's password.
@@ -46,6 +48,7 @@ $ vol -f Snapshot6_1609157562389.vmem windows.registry.printkey --key "ControlSe
 Last Write ... Name
 ※\(^o^)/※ ... ShutdownTime
 ```
+{: .nolineno}
 >Answer format: YYYY-MM-DD HH:MM:SS
 {: .prompt-info }
 #### Question 2
@@ -57,6 +60,7 @@ PID     PPID    ImageFileName   Offset(V) ...
 1920    1144    cmd.exe 0xfa80027906f0  ...
 ...
 ```
+{: .nolineno}
 Knowing the PID we can dump the information in the memory space of this process. Then we can extract the 'strings' of this dump.
 ```sh
 $ vol -f Snapshot6_1609157562389.vmem windows.pslist --pid 1920 --dump
@@ -65,6 +69,7 @@ $ strings 1920.cmd.exe.0x4ace0000.dmp
 THM{※\(^o^)/※}
 ...
 ```
+{: .nolineno}
 
 ## Task 4 - TrueCrypt
 ### Description
@@ -80,6 +85,7 @@ Volatility has a plugin to extract either the master key or the passphrase.
 $ ./volatility_2.6 -f Snapshot14_1609164553061.vmem --profile=Win7SP1x64 truecryptpassphrase
 Found at 0xfffff8800512bee4 length 11: ※\(^o^)/※
 ```
+{: .nolineno}
 
 ## References
 [^1]: [Crackstation.net](https://crackstation.net)
